@@ -10,6 +10,9 @@ app.use("/users", userController);
 const postController = require("./controller/post.controller");
 app.use("/posts", postController);
 
+const analyticsController = require("./controller/analytics.controller");
+app.use("/analytics", analyticsController);
+
 app.get("/", (req, res) => {
   res.send("Server is started");
 });

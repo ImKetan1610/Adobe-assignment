@@ -83,22 +83,4 @@ router.post("/:id/unlike", async (req, res) => {
   }
 });
 
-router.get("/analytics/posts", async (req, res) => {
-  try {
-    const totalPosts = await Post.countDocuments();
-    return res.status(200).send({ totalPosts });
-  } catch (error) {
-    return res.status(500).send(error);
-  }
-});
-
-router.get("/analytics/posts/top-liked", async (req, res) => {
-  try {
-    const mostLikedPost = await Post.find().sort({ likes: -1 }).limit(5);
-    return res.send(mostLikedPost);
-  } catch (error) {
-    return res.status(500).send(error);
-  }
-});
-
 module.exports = router;
