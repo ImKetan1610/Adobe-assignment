@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true,
-    match: /^[^\s@]+@[\s@]+\.[^\s@]+$/,
+    // match: /^[^\s@]+@[\s@]+\.[^\s@]+$/,
   },
   bio: { type: String, maxlength: 200 },
   created_at: { type: Date, default: Date.now },
