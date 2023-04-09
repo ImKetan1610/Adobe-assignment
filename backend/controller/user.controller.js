@@ -27,6 +27,15 @@ router.post("", async (req, res) => {
   }
 });
 
+router.get("", async (req, res) => {
+  try {
+    const users = await User.find();
+    return res.send(users);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
 // searching user on basis of id
 router.get("/:id", async (req, res) => {
   try {

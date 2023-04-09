@@ -17,7 +17,6 @@ const UserForm = () => {
       console.log(error);
     }
     console.log({ name, email, bio });
-    onSubmit({ name, email, bio });
   };
 
   return (
@@ -28,6 +27,7 @@ const UserForm = () => {
           id="name"
           type="text"
           value={name}
+          required
           onChange={(event) => setName(event.target.value)}
         />
       </label>
@@ -38,6 +38,7 @@ const UserForm = () => {
           type="email"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
+          required
         />
       </label>
       <label htmlFor="bio">
