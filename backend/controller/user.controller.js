@@ -3,7 +3,7 @@ const User = require("../model/user.model");
 
 const router = express.Router();
 
-router.post("/users", async (req, res) => {
+router.post("", async (req, res) => {
   try {
     let user = await User.create(req.body);
     return res.status(201).send(user);
@@ -12,7 +12,7 @@ router.post("/users", async (req, res) => {
   }
 });
 
-router.get("/users/:id", async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
     if (!user) {
@@ -24,7 +24,7 @@ router.get("/users/:id", async (req, res) => {
   }
 });
 
-router.put("/users/:id", async (req, res) => {
+router.put("/:id", async (req, res) => {
   const allowedUpdates = ["name", "bio"];
   const updates = Object.keys(req.body);
   const isValidOperation = updates.every((update) =>
@@ -48,7 +48,7 @@ router.put("/users/:id", async (req, res) => {
   }
 });
 
-router.delete("/users/:id", async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     const user = await User.findByIdAndDelete(req.params.id);
     if (!user) {

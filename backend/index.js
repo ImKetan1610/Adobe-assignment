@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 
 const userController = require("./controller/user.controller");
-app.use("", userController);
+app.use("/users", userController);
 
 const postController = require("./controller/post.controller");
 app.use("/posts", postController);
