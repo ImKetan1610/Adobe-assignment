@@ -3,6 +3,7 @@ const Post = require("../model/post.model");
 
 const router = express.Router();
 
+// creating a post object and storing to db
 router.post("", async (req, res) => {
   try {
     const { user_id, content } = req.body;
@@ -13,6 +14,7 @@ router.post("", async (req, res) => {
   }
 });
 
+//searching for post by id
 router.get("/:id", async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
@@ -25,6 +27,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+//searching the post by id and then updating the values
 router.put("/:id", async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
@@ -40,6 +43,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
+// delete route for post
 router.delete("/:id", async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
@@ -53,6 +57,7 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
+// increase the likes count
 router.post("/:id/like", async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
@@ -67,6 +72,7 @@ router.post("/:id/like", async (req, res) => {
   }
 });
 
+// decrease the like count
 router.post("/:id/unlike", async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);

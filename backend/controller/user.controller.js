@@ -12,11 +12,13 @@ router.post("", async (req, res) => {
     bio: Joi.string().max(200),
   });
 
+  //validating the email and name and if getting any error then reflect it back
   const { err } = schema.validate({ name, email, bio });
   if (err) {
     return res.send(err);
   }
 
+  // successfully creating a user object
   try {
     let user = await User.create(req.body);
     return res.status(201).send(user);
@@ -25,6 +27,7 @@ router.post("", async (req, res) => {
   }
 });
 
+// searching user on basis of id
 router.get("/:id", async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
@@ -37,6 +40,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+// making changes to users by searching user w.r.to their id
 router.put("/:id", async (req, res) => {
   const allowedUpdates = ["name", "bio"];
   const updates = Object.keys(req.body);
@@ -61,6 +65,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
+// deleting user object from db
 router.delete("/:id", async (req, res) => {
   try {
     const user = await User.findByIdAndDelete(req.params.id);

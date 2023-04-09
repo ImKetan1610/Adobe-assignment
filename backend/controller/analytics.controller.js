@@ -5,6 +5,7 @@ const Post = require("../model/post.model");
 
 const router = express.Router();
 
+// find the total number of users
 router.get("/users", async (req, res) => {
   try {
     const totalUsers = await User.countDocuments();
@@ -14,6 +15,7 @@ router.get("/users", async (req, res) => {
   }
 });
 
+// find top active users on basis of their post
 router.get("/users/top-active", async (req, res) => {
   try {
     const mostActiveUsers = await User.aggregate([
@@ -43,6 +45,7 @@ router.get("/users/top-active", async (req, res) => {
   }
 });
 
+// find the number of posts
 router.get("/posts", async (req, res) => {
   try {
     const totalPosts = await Post.countDocuments();
@@ -52,6 +55,7 @@ router.get("/posts", async (req, res) => {
   }
 });
 
+// find the most liked posts
 router.get("/posts/top-liked", async (req, res) => {
   try {
     const mostLikedPost = await Post.find().sort({ likes: -1 }).limit(5);

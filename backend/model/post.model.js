@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+// creating the schema for post
 const postScheme = new mongoose.Schema(
   {
     user_id: {
@@ -18,5 +19,6 @@ const postScheme = new mongoose.Schema(
   }
 );
 
+// creating the post model
 const Post = mongoose.model("Post", postScheme);
 module.exports = Post;
