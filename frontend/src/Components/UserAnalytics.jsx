@@ -22,9 +22,9 @@ console.log("most",totalUsers,mostActiveUsers)
       <p>Total Numbers of User : {totalUsers} </p>
       <p>Top 5 most active users : </p>
       <ul>
-        {/* {mostActiveUsers.map((user) => (
+        {mostActiveUsers.map((user) => (
           <li key={user._id}>{user.name}</li>
-        ))} */}
+        ))}
       </ul>
     </div>
   );

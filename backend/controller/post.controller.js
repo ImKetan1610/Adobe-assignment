@@ -18,7 +18,7 @@ router.get("", async (req, res) => {
 // creating a post object and storing to db
 router.post("", async (req, res) => {
   try {
-    const { user_id, content } = req.body;
+    // const { user_id, content } = req.body;
     const post = new Post.create(req.body);
     return res.status(201).send(post);
   } catch (error) {

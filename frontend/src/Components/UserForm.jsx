@@ -20,9 +20,11 @@ const UserForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form id="form" onSubmit={handleSubmit}>
+      <h2>Add Users</h2>
       <label htmlFor="name">
         Name:{" "}
+        </label><br />
         <input
           id="name"
           type="text"
@@ -30,9 +32,10 @@ const UserForm = () => {
           required
           onChange={(event) => setName(event.target.value)}
         />
-      </label>
+      <br/><br/>
       <label htmlFor="email">
         Email:{" "}
+        </label><br />
         <input
           id="email"
           type="email"
@@ -40,17 +43,18 @@ const UserForm = () => {
           onChange={(event) => setEmail(event.target.value)}
           required
         />
-      </label>
+      <br/><br/>
       <label htmlFor="bio">
         Bio:{" "}
+        </label> <br />
         <input
           id="bio"
           type="text"
           value={bio}
           onChange={(event) => setBio(event.target.value)}
         />
-      </label>
-      <button type="submit">Submit</button>
+      <br/><br/>
+      <button id="btn" type="submit">Submit</button>
     </form>
   );
 };

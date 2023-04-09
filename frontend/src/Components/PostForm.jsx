@@ -22,24 +22,25 @@ const PostForm = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="userId">User ID: </label>
+    <form id="form" onSubmit={handleSubmit}>
+      <h2>Add Posts</h2>
+      <label htmlFor="userId">User ID: </label><br />
       <input
         type="text"
         id="userId"
         value={userId}
         onChange={(e) => setUserId(e.target.value)}
         required
-      />
+      /><br/><br/>
 
-      <label htmlFor="content">Content: </label>
+      <label htmlFor="content">Content: </label><br/>
       <textarea
         id="content"
         value={content}
         onChange={(e) => setContent(e.target.value)}
-      />
+      /><br /><br />
 
-      <button type="submit">Submit</button>
+      <button id="btn" type="submit">Submit</button>
     </form>
   );
 };

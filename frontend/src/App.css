@@ -1,0 +1,52 @@
+nav > ul {
+  background-color: red;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav > ul > div {
+  font-weight: bold;
+  text-decoration: none;
+  padding: 5px;
+}
+
+nav {
+  margin-bottom: 50px;
+}
+
+#form {
+  width: 250px;
+  margin: auto;
+  border: 1px solid;
+  padding: 25px;
+  border-radius: 10%;
+}
+
+#btn {
+  align-items: center;
+  text-align: center;
+}
+
+input {
+  width: 235px;
+}
+
+textarea {
+  width: 90%;
+}
+
+#container {
+  border: 1px solid;
+}
+
+table,
+tr,
+th,
+thead,
+tbody,
+td {
+  border: 1px solid;
+}

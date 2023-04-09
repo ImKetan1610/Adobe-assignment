@@ -33,7 +33,7 @@ const UserList = () => {
 
 
   return (
-    <div>
+    <div id="container">
       <h2>Users List</h2>
       <table>
         <thead>
