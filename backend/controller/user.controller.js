@@ -32,7 +32,7 @@ router.get("", async (req, res) => {
     const users = await User.find();
     return res.send(users);
   } catch (error) {
-    res.status(500).send(error);
+    return res.status(500).send(error);
   }
 });
 
@@ -43,9 +43,9 @@ router.get("/:id", async (req, res) => {
     if (!user) {
       return res.status(404).send();
     }
-    res.send(user);
+    return res.send(user);
   } catch (error) {
-    res.status(500).send(error);
+    return res.status(500).send(error);
   }
 });
 
@@ -68,9 +68,9 @@ router.put("/:id", async (req, res) => {
     if (!user) {
       return res.status(404).send();
     }
-    res.send(user);
+    return res.send(user);
   } catch (error) {
-    res.status(400).send(error);
+    return res.status(400).send(error);
   }
 });
 
@@ -81,9 +81,9 @@ router.delete("/:id", async (req, res) => {
     if (!user) {
       return res.status(404).send();
     }
-    res.send(user);
+    return res.send(user);
   } catch (error) {
-    res.status(500).send(error);
+    return res.status(500).send(error);
   }
 });
 

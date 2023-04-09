@@ -9,9 +9,9 @@ const router = express.Router();
 router.get("/users", async (req, res) => {
   try {
     const totalUsers = await User.countDocuments();
-    res.status(201).send({ totalUsers });
+    return res.status(201).send({ totalUsers });
   } catch (error) {
-    res.status(500).send(error);
+    return res.status(500).send(error);
   }
 });
 
@@ -39,9 +39,9 @@ router.get("/users/top-active", async (req, res) => {
       { $sort: { postCount: -1 } },
       { $limit: 5 },
     ]);
-    res.send(mostActiveUsers);
+    return res.send(mostActiveUsers);
   } catch (error) {
-    res.status(500).send(error);
+    return res.status(500).send(error);
   }
 });
 

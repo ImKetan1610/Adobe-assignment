@@ -9,9 +9,9 @@ router.get("", async (req, res) => {
     if (!post) {
       return res.status(404).send("Post not found");
     }
-    res.send(post);
+    return res.status(200).send(post);
   } catch (error) {
-    res.status(500).send(post);
+    return res.status(500).send(error);
   }
 });
 
@@ -33,9 +33,9 @@ router.get("/:id", async (req, res) => {
     if (!post) {
       return res.status(404).send("Post not found");
     }
-    res.send(post);
+    return res.status(201).send(post);
   } catch (error) {
-    res.status(500).send(post);
+    return res.status(500).send(post);
   }
 });
 
@@ -49,9 +49,9 @@ router.put("/:id", async (req, res) => {
     post.content = req.body.content;
     post.updated_at = Date.now();
     await post.save();
-    res.send(post);
+    return res.send(post);
   } catch (error) {
-    res.status(500).send(error);
+    return res.status(500).send(error);
   }
 });
 
@@ -63,7 +63,7 @@ router.delete("/:id", async (req, res) => {
       return res.status(404).send("Post not found");
     }
     await post.remove();
-    res.send("Post deleted successfully");
+    return res.send("Post deleted successfully");
   } catch (error) {
     return res.status(500).send(error);
   }
@@ -78,7 +78,7 @@ router.post("/:id/like", async (req, res) => {
     }
     post.likes++;
     await post.save;
-    res.send(post);
+    return res.send(post);
   } catch (error) {
     return res.status(500).send(error);
   }
@@ -95,7 +95,7 @@ router.post("/:id/unlike", async (req, res) => {
       post.likes--;
     }
     await post.save;
-    res.send(post);
+    return res.send(post);
   } catch (error) {
     return res.status(500).send(error);
   }
