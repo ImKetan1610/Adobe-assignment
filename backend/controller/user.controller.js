@@ -1,9 +1,21 @@
 const express = require("express");
 const User = require("../model/user.model");
+const Joi = require("joi");
 
 const router = express.Router();
 
 router.post("", async (req, res) => {
+  let { name, email } = req.body;
+  let schema = Joi.object({
+    name: Joi.string().min(1).max(30).required(),
+    email: Joi.string().email().required(),
+  });
+
+  const { err } = schema.validate({ name, email });
+  if (err) {
+    return res.send(err);
+  }
+
   try {
     let user = await User.create(req.body);
     return res.status(201).send(user);
