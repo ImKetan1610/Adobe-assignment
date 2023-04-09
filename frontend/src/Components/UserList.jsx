@@ -19,6 +19,19 @@ const UserList = () => {
     }
   };
   console.log(users);
+
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`${api}/users/id`);
+      setUsers(users.filter((user) => user._id !== id));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  
+
+
   return (
     <div>
       <h2>Users List</h2>
@@ -36,18 +49,18 @@ const UserList = () => {
         </thead>
         <tbody>
           {users.map((user) => (
-            <tr key={user.id}>
-                <td>{user.id}</td>
-                <td>{user.name}</td>
-                <td>{user.email}</td>
-                <td>{user.bio}</td>
-                <td>{user.created_at}</td>
-                <td>{user.updated_at}</td>
-                <td>
-                    <button>view</button>
-                    <button>edit</button>
-                    <button>delete</button>
-                </td>
+            <tr key={user._id}>
+              <td>{user._id}</td>
+              <td>{user.name}</td>
+              <td>{user.email}</td>
+              <td>{user.bio}</td>
+              <td>{user.created_at}</td>
+              <td>{user.updated_at}</td>
+              <td>
+                <button onClick={() => handleView(user._id)}>view</button>
+                <button onClick={() => handleEdit(user._id)}>edit</button>
+                <button onClick={() => handleDelete(user._id)}>delete</button>
+              </td>
             </tr>
           ))}
         </tbody>

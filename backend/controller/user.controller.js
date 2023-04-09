@@ -75,7 +75,7 @@ router.put("/:id", async (req, res) => {
 });
 
 // deleting user object from db
-router.delete("/:id", async (req, res) => {
+router.delete("/id", async (req, res) => {
   try {
     const user = await User.findByIdAndDelete(req.params.id);
     if (!user) {

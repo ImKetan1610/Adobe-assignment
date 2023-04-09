@@ -18,18 +18,19 @@ const PostList = () => {
             console.log(error)
         }
     }
+  console.log(post);
     
   return (
     <div>
       <h1>Post List</h1>
       <ul>
-        {post.map((post)=>{
-            <li key={post._id}>
-                <h2>{post.title}</h2>
-                <p>{post.content}</p>
-                <p>Likes: {post.likes}</p>
+        {post.map((ps)=>(
+            <li key={ps._id}>
+                {/* <h2>{ps.title}</h2> */}
+                <p>Post: {ps.content}</p>
+                <p>Likes: {ps.likes}</p>
             </li>
-        })}
+        ))}
       </ul>
     </div>
   )
