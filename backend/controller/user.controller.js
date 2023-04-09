@@ -5,13 +5,14 @@ const Joi = require("joi");
 const router = express.Router();
 
 router.post("", async (req, res) => {
-  let { name, email } = req.body;
+  let { name, email, bio } = req.body;
   let schema = Joi.object({
     name: Joi.string().min(1).max(30).required(),
     email: Joi.string().email().required(),
+    bio: Joi.string().max(200),
   });
 
-  const { err } = schema.validate({ name, email });
+  const { err } = schema.validate({ name, email, bio });
   if (err) {
     return res.send(err);
   }
