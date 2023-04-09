@@ -10,6 +10,10 @@ app.use("", userController);
 const postController = require("./controller/post.controller");
 app.use("/post", postController);
 
+app.get("/", async (req, res) => {
+  res.send("Server is started");
+});
+
 app.listen(1234, async () => {
   try {
     await connect();
