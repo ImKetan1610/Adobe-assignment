@@ -40,6 +40,8 @@ textarea {
 
 #container {
   border: 1px solid;
+  width: 90%;
+  margin: auto;
 }
 
 table,
