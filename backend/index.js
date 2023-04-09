@@ -8,7 +8,7 @@ const userController = require("./controller/user.controller");
 app.use("", userController);
 
 const postController = require("./controller/post.controller");
-app.use("/post", postController);
+app.use("/posts", postController);
 
 app.get("/", async (req, res) => {
   res.send("Server is started");
