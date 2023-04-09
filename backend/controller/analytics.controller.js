@@ -18,27 +18,29 @@ router.get("/users", async (req, res) => {
 // find top active users on basis of their post
 router.get("/users/top-active", async (req, res) => {
   try {
-    const mostActiveUsers = await User.aggregate([
-      {
-        $lookup: {
-          from: "posts",
-          localField: "_id",
-          foreignField: "author",
-          as: "posts",
-        },
-      },
-      {
-        $project: {
-          _id: 1,
-          name: 1,
-          email: 1,
-          bio: 1,
-          postCount: { $size: "$posts" },
-        },
-      },
-      { $sort: { postCount: -1 } },
-      { $limit: 5 },
-    ]);
+    // const mostActiveUsers = await User.aggregate([
+    //   {
+    //     $lookup: {
+    //       from: "posts",
+    //       localField: "_id",
+    //       foreignField: "author",
+    //       as: "posts",
+    //     },
+    //   },
+    //   {
+    //     $project: {
+    //       _id: 1,
+    //       name: 1,
+    //       email: 1,
+    //       bio: 1,
+    //       postCount: { $size: "$posts" },
+    //     },
+    //   },
+    //   { $sort: { postCount: -1 } },
+    //   { $limit: 5 },
+    // ]);
+    const mostActiveUsers = await User.find();
+    mostActiveUsers.sort((a,b)=>b-a).limit(5)
     return res.send(mostActiveUsers);
   } catch (error) {
     return res.status(500).send(error);

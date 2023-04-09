@@ -3,6 +3,8 @@ import UserForm from './Components/UserForm'
 import PostForm from './Components/PostForm'
 import UserList from './Components/UserList'
 import PostList from './Components/PostList'
+import UserAnalytics from './Components/UserAnalytics'
+import PostAnalytics from './Components/PostAnalytics'
 
 const App = () => {
   return (
@@ -11,6 +13,8 @@ const App = () => {
       <PostForm />
       <UserList />
       <PostList />
+      <UserAnalytics />
+      <PostAnalytics />
     </>
   )
 }
