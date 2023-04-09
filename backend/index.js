@@ -10,9 +10,9 @@ app.use("/users", userController);
 const postController = require("./controller/post.controller");
 app.use("/posts", postController);
 
-// app.get("/", (req, res) => {
-//   res.send("Server is started");
-// });
+app.get("/", (req, res) => {
+  res.send("Server is started");
+});
 
 app.listen(1234, async () => {
   try {
