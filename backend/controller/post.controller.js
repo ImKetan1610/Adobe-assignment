@@ -3,6 +3,18 @@ const Post = require("../model/post.model");
 
 const router = express.Router();
 
+router.get("", async (req, res) => {
+  try {
+    const post = await Post.find();
+    if (!post) {
+      return res.status(404).send("Post not found");
+    }
+    res.send(post);
+  } catch (error) {
+    res.status(500).send(post);
+  }
+});
+
 // creating a post object and storing to db
 router.post("", async (req, res) => {
   try {
